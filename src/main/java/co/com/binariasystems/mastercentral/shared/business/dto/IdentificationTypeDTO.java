@@ -13,7 +13,7 @@ import co.com.binariasystems.mastercentral.shared.business.utils.Constants;
 @CRUDViewConfig(
 		messagesFilePath=Constants.ENTITY_CRUDS_MESSAGES,
 		deleteEnabled=false,
-		searcherConfig=@SearcherConfig(searchField="identificationTypeCode", descriptionFields={"shorName", "description"})
+		searcherConfig=@SearcherConfig(searchField="identificationTypeCode", descriptionFields={"shortName", "description"})
 )
 public class IdentificationTypeDTO implements Serializable {
 	@Key(column = "ID_TIPO_IDENTIFICACION")
@@ -21,7 +21,7 @@ public class IdentificationTypeDTO implements Serializable {
     @Column(name = "COD_TIPO_IDENTIFICACION")
     private String identificationTypeCode;
     @Column(name = "NOMBRE_CORTO")
-    private String shorName;
+    private String shortName;
     @Column(name = "DESCRIPCION")
     private String description;
 	/**
@@ -51,14 +51,14 @@ public class IdentificationTypeDTO implements Serializable {
 	/**
 	 * @return the shorName
 	 */
-	public String getShorName() {
-		return shorName;
+	public String getShortName() {
+		return shortName;
 	}
 	/**
 	 * @param shorName the shorName to set
 	 */
-	public void setShorName(String shorName) {
-		this.shorName = shorName;
+	public void setShortName(String shortName) {
+		this.shortName = shortName;
 	}
 	/**
 	 * @return the description

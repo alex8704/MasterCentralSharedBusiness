@@ -2,94 +2,87 @@ package co.com.binariasystems.mastercentral.shared.business.dto;
 
 import java.io.Serializable;
 
+import co.com.binariasystems.fmw.util.ObjectUtils.UpperTransform;
+
 public class AddressDTO implements Serializable {
-    private String mainViaTypeCode;
-    private String mainViaNumber;
-    private String mainViaLetters;
-    private String bis;
-    private String bisNumber;
-    private String bisLetters;
+    private String mainViaType;
+    private Integer mainViaNum;
+    @UpperTransform
+    private String mainViaLetter;
+    private String mainViaBis;
+    @UpperTransform
+    private String mainViaBisLetter;
     private String mainViaQuadrant;
-    private String mainViaComplementCode;
+    private String mainViaComplement;
+    @UpperTransform
     private String mainViaComplementDetail;
-    private String secondaryViaNumber;
-    private String secondaryViaLetters;
-    private String complementaryViaNumber;
-    private String complementaryViaNumberQuadrant;
-    private String complementaryViaComplementCode;
+    private Integer secondaryViaNum;
+    @UpperTransform
+    private String secondaryViaLetter;
+    private Integer complementaryViaNum;
+    private String complementaryViaQuadrant;
+    private String complementaryViaComplement;
+    @UpperTransform
     private String complementaryViaComplementDetail;
-	
 	/**
-	 * @return the mainViaTypeCode
+	 * @return the mainViaType
 	 */
-	public String getMainViaTypeCode() {
-		return mainViaTypeCode;
+	public String getMainViaType() {
+		return mainViaType;
 	}
 	/**
-	 * @param mainViaTypeCode the mainViaTypeCode to set
+	 * @param mainViaType the mainViaType to set
 	 */
-	public void setMainViaTypeCode(String mainViaTypeCode) {
-		this.mainViaTypeCode = mainViaTypeCode;
+	public void setMainViaType(String mainViaType) {
+		this.mainViaType = mainViaType;
 	}
 	/**
-	 * @return the mainViaNumber
+	 * @return the mainViaNum
 	 */
-	public String getMainViaNumber() {
-		return mainViaNumber;
+	public Integer getMainViaNum() {
+		return mainViaNum;
 	}
 	/**
-	 * @param mainViaNumber the mainViaNumber to set
+	 * @param mainViaNum the mainViaNum to set
 	 */
-	public void setMainViaNumber(String mainViaNumber) {
-		this.mainViaNumber = mainViaNumber;
+	public void setMainViaNum(Integer mainViaNum) {
+		this.mainViaNum = mainViaNum;
 	}
 	/**
-	 * @return the mainViaLetters
+	 * @return the mainViaLetter
 	 */
-	public String getMainViaLetters() {
-		return mainViaLetters;
+	public String getMainViaLetter() {
+		return mainViaLetter;
 	}
 	/**
-	 * @param mainViaLetters the mainViaLetters to set
+	 * @param mainViaLetter the mainViaLetter to set
 	 */
-	public void setMainViaLetters(String mainViaLetters) {
-		this.mainViaLetters = mainViaLetters;
+	public void setMainViaLetter(String mainViaLetter) {
+		this.mainViaLetter = mainViaLetter;
 	}
 	/**
-	 * @return the bis
+	 * @return the mainViaBis
 	 */
-	public String getBis() {
-		return bis;
+	public String getMainViaBis() {
+		return mainViaBis;
 	}
 	/**
-	 * @param bis the bis to set
+	 * @param mainViaBis the mainViaBis to set
 	 */
-	public void setBis(String bis) {
-		this.bis = bis;
+	public void setMainViaBis(String mainViaBis) {
+		this.mainViaBis = mainViaBis;
 	}
 	/**
-	 * @return the bisNumber
+	 * @return the mainViaBisLetter
 	 */
-	public String getBisNumber() {
-		return bisNumber;
+	public String getMainViaBisLetter() {
+		return mainViaBisLetter;
 	}
 	/**
-	 * @param bisNumber the bisNumber to set
+	 * @param mainViaBisLetter the mainViaBisLetter to set
 	 */
-	public void setBisNumber(String bisNumber) {
-		this.bisNumber = bisNumber;
-	}
-	/**
-	 * @return the bisLetters
-	 */
-	public String getBisLetters() {
-		return bisLetters;
-	}
-	/**
-	 * @param bisLetters the bisLetters to set
-	 */
-	public void setBisLetters(String bisLetters) {
-		this.bisLetters = bisLetters;
+	public void setMainViaBisLetter(String mainViaBisLetter) {
+		this.mainViaBisLetter = mainViaBisLetter;
 	}
 	/**
 	 * @return the mainViaQuadrant
@@ -104,16 +97,16 @@ public class AddressDTO implements Serializable {
 		this.mainViaQuadrant = mainViaQuadrant;
 	}
 	/**
-	 * @return the mainViaComplementCode
+	 * @return the mainViaComplement
 	 */
-	public String getMainViaComplementCode() {
-		return mainViaComplementCode;
+	public String getMainViaComplement() {
+		return mainViaComplement;
 	}
 	/**
-	 * @param mainViaComplementCode the mainViaComplementCode to set
+	 * @param mainViaComplement the mainViaComplement to set
 	 */
-	public void setMainViaComplementCode(String mainViaComplementCode) {
-		this.mainViaComplementCode = mainViaComplementCode;
+	public void setMainViaComplement(String mainViaComplement) {
+		this.mainViaComplement = mainViaComplement;
 	}
 	/**
 	 * @return the mainViaComplementDetail
@@ -128,64 +121,64 @@ public class AddressDTO implements Serializable {
 		this.mainViaComplementDetail = mainViaComplementDetail;
 	}
 	/**
-	 * @return the secondaryViaNumber
+	 * @return the secondaryViaNum
 	 */
-	public String getSecondaryViaNumber() {
-		return secondaryViaNumber;
+	public Integer getSecondaryViaNum() {
+		return secondaryViaNum;
 	}
 	/**
-	 * @param secondaryViaNumber the secondaryViaNumber to set
+	 * @param secondaryViaNum the secondaryViaNum to set
 	 */
-	public void setSecondaryViaNumber(String secondaryViaNumber) {
-		this.secondaryViaNumber = secondaryViaNumber;
+	public void setSecondaryViaNum(Integer secondaryViaNum) {
+		this.secondaryViaNum = secondaryViaNum;
 	}
 	/**
-	 * @return the secondaryViaLetters
+	 * @return the secondaryViaLetter
 	 */
-	public String getSecondaryViaLetters() {
-		return secondaryViaLetters;
+	public String getSecondaryViaLetter() {
+		return secondaryViaLetter;
 	}
 	/**
-	 * @param secondaryViaLetters the secondaryViaLetters to set
+	 * @param secondaryViaLetter the secondaryViaLetter to set
 	 */
-	public void setSecondaryViaLetters(String secondaryViaLetters) {
-		this.secondaryViaLetters = secondaryViaLetters;
+	public void setSecondaryViaLetter(String secondaryViaLetter) {
+		this.secondaryViaLetter = secondaryViaLetter;
 	}
 	/**
-	 * @return the complementaryViaNumber
+	 * @return the complementaryViaNum
 	 */
-	public String getComplementaryViaNumber() {
-		return complementaryViaNumber;
+	public Integer getComplementaryViaNum() {
+		return complementaryViaNum;
 	}
 	/**
-	 * @param complementaryViaNumber the complementaryViaNumber to set
+	 * @param complementaryViaNum the complementaryViaNum to set
 	 */
-	public void setComplementaryViaNumber(String complementaryViaNumber) {
-		this.complementaryViaNumber = complementaryViaNumber;
+	public void setComplementaryViaNum(Integer complementaryViaNum) {
+		this.complementaryViaNum = complementaryViaNum;
 	}
 	/**
-	 * @return the complementaryViaNumberQuadrant
+	 * @return the complementaryViaQuadrant
 	 */
-	public String getComplementaryViaNumberQuadrant() {
-		return complementaryViaNumberQuadrant;
+	public String getComplementaryViaQuadrant() {
+		return complementaryViaQuadrant;
 	}
 	/**
-	 * @param complementaryViaNumberQuadrant the complementaryViaNumberQuadrant to set
+	 * @param complementaryViaQuadrant the complementaryViaQuadrant to set
 	 */
-	public void setComplementaryViaNumberQuadrant(String complementaryViaNumberQuadrant) {
-		this.complementaryViaNumberQuadrant = complementaryViaNumberQuadrant;
+	public void setComplementaryViaQuadrant(String complementaryViaQuadrant) {
+		this.complementaryViaQuadrant = complementaryViaQuadrant;
 	}
 	/**
-	 * @return the complementaryViaComplementCode
+	 * @return the complementaryViaComplement
 	 */
-	public String getComplementaryViaComplementCode() {
-		return complementaryViaComplementCode;
+	public String getComplementaryViaComplement() {
+		return complementaryViaComplement;
 	}
 	/**
-	 * @param complementaryViaComplementCode the complementaryViaComplementCode to set
+	 * @param complementaryViaComplement the complementaryViaComplement to set
 	 */
-	public void setComplementaryViaComplementCode(String complementaryViaComplementCode) {
-		this.complementaryViaComplementCode = complementaryViaComplementCode;
+	public void setComplementaryViaComplement(String complementaryViaComplement) {
+		this.complementaryViaComplement = complementaryViaComplement;
 	}
 	/**
 	 * @return the complementaryViaComplementDetail
@@ -199,4 +192,13 @@ public class AddressDTO implements Serializable {
 	public void setComplementaryViaComplementDetail(String complementaryViaComplementDetail) {
 		this.complementaryViaComplementDetail = complementaryViaComplementDetail;
 	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "AddressDTO [mainViaType=" + mainViaType + ", mainViaNum=" + mainViaNum + ", mainViaLetter=" + mainViaLetter + ", mainViaBis=" + mainViaBis + ", mainViaBisLetter=" + mainViaBisLetter + ", mainViaQuadrant=" + mainViaQuadrant + ", mainViaComplement=" + mainViaComplement + ", mainViaComplementDetail=" + mainViaComplementDetail + ", secondaryViaNum=" + secondaryViaNum + ", secondaryViaLetter=" + secondaryViaLetter + ", complementaryViaNum=" + complementaryViaNum + ", complementaryViaQuadrant=" + complementaryViaQuadrant + ", complementaryViaComplement=" + complementaryViaComplement + ", complementaryViaComplementDetail=" + complementaryViaComplementDetail + "]";
+	}
+	
+	
 }

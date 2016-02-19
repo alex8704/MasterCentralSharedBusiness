@@ -9,6 +9,7 @@ import co.com.binariasystems.fmw.entity.annot.Column;
 import co.com.binariasystems.fmw.entity.annot.Entity;
 import co.com.binariasystems.fmw.entity.annot.Key;
 import co.com.binariasystems.fmw.entity.annot.SearcherConfig;
+import co.com.binariasystems.fmw.entity.annot.ViewFieldConfig;
 import co.com.binariasystems.mastercentral.shared.business.utils.Constants;
 
 @Entity(table=Constants.MAT_DBSCHEMA+"."+"MAT_PARAMETROS_CONFIG")
@@ -21,14 +22,15 @@ import co.com.binariasystems.mastercentral.shared.business.utils.Constants;
 public class ConfigParameterDTO implements Serializable {
 	@Key(column = "ID_PARAM_CONFIG")
     private Integer configParameterId;
+	@Column(name = "COD_APLICACION")
+    private Application applicationCode;
     @Column(name = "COD_PARAM_CONFIG")
     private String configParameterCode;
-    @Column(name = "COD_APLICACION")
-    private Application applicationCode;
     @Column(name = "DESCRIPCION")
     private String description;
     @Column(name = "VLR_NUMERICO")
     private Double numericValue;
+    @ViewFieldConfig(ommitUpperTransform=true)
     @Column(name = "VLR_CADENA")
     private String stringValue;
     @Column(name = "USUARIO_CREACION")

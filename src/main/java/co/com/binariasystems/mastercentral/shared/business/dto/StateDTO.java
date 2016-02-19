@@ -20,6 +20,8 @@ import co.com.binariasystems.mastercentral.shared.business.utils.Constants;
 public class StateDTO implements Serializable {
 	@Key(column = "ID_ESTADO")
     private Integer stateId;
+	@Relation(column = "ID_AGRUPADOR")
+    private StateGroupingDTO stateGrouping;
     @Column(name = "COD_ESTADO")
     private String stateCode;
     @Column(name = "NOMBRE")
@@ -28,8 +30,6 @@ public class StateDTO implements Serializable {
     private String description;
     @Column(name = "ES_ACTIVO")
     private SN2Boolean isActive;
-    @Relation(column = "ID_AGRUPADOR")
-    private StateGroupingDTO stateGrouping;
 	/**
 	 * @return the stateId
 	 */

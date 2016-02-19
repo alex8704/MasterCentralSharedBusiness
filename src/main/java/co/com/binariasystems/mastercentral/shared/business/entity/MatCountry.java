@@ -46,7 +46,7 @@ public class MatCountry implements Serializable {
     @NotNull
     @Size(min = 1, max = 4)
     @Column(name = "COD_DANE")
-    private String contryCode;
+    private String countryCode;
 
     /**
      * @return the countryId
@@ -79,15 +79,15 @@ public class MatCountry implements Serializable {
     /**
      * @return the contryCode
      */
-    public String getContryCode() {
-        return contryCode;
+    public String getCountryCode() {
+        return countryCode;
     }
 
     /**
      * @param contryCode the contryCode to set
      */
-    public void setContryCode(String contryCode) {
-        this.contryCode = contryCode;
+    public void setCountryCode(String countryCode) {
+        this.countryCode = countryCode;
     }
     
 }

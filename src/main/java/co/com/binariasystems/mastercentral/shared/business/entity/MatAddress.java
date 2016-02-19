@@ -10,6 +10,7 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.Size;
 
 /**
@@ -19,260 +20,224 @@ import javax.validation.constraints.Size;
 @Embeddable
 public class MatAddress implements Serializable {
     private static final long serialVersionUID = 1L;
+    
     @Size(max = 15)
     @Column(name = "COD_TIPO_VIA_PPAL")
-    private String mainViaTypeCode;
-    @Size(max = 3)
+    private String mainViaType;
+    @Max(value=999)
     @Column(name = "NUMERO_VIA_PPAL")
-    private String mainViaNumber;
+    private Integer mainViaNum;
     @Size(max = 3)
     @Column(name = "LETRAS_VIA_PPAL")
-    private String mainViaLetters;
+    private String mainViaLetter;
     @Size(max = 3)
     @Column(name = "BIS")
-    private String bis;
-    @Size(max = 3)
-    @Column(name = "NUMERO_BIS")
-    private String bisNumber;
+    private String mainViaBis;
     @Size(max = 3)
     @Column(name = "LETRAS_BIS")
-    private String bisLetters;
+    private String mainViaBisLetter;
     @Size(max = 10)
     @Column(name = "CUADRANTE_VIA_PPAL")
     private String mainViaQuadrant;
     @Size(max = 15)
     @Column(name = "COD_COMPLEM_VIA_PPAL")
-    private String mainViaComplementCode;
+    private String mainViaComplement;
     @Size(max = 40)
     @Column(name = "DETAL_COMPLEM_VIA_PPAL")
     private String mainViaComplementDetail;
-    @Size(max = 3)
+    @Max(value=999)
     @Column(name = "NUMERO_VIA_SECUND")
-    private String secondaryViaNumber;
+    private Integer secondaryViaNum;
     @Size(max = 3)
     @Column(name = "LETRAS_VIA_SECUND")
-    private String secondaryViaLetters;
-    @Size(max = 3)
+    private String secondaryViaLetter;
+    @Max(value=999)
     @Column(name = "NUMERO_VIA_COMPLEM")
-    private String complementaryViaNumber;
+    private Integer complementaryViaNum;
     @Size(max = 10)
     @Column(name = "CUADRANTE_VIA_COMPLEM")
-    private String complementaryViaNumberQuadrant;
+    private String complementaryViaQuadrant;
     @Size(max = 15)
     @Column(name = "COD_COMPLEM_VIA_COMPLEM")
-    private String complementaryViaComplementCode;
+    private String complementaryViaComplement;
     @Size(max = 40)
     @Column(name = "DETAL_COMPLEM_VIA_COMPLEM")
     private String complementaryViaComplementDetail;
-
-    /**
-     * @return the mainViaTypeCode
-     */
-    public String getMainViaTypeCode() {
-        return mainViaTypeCode;
-    }
-
-    /**
-     * @param mainViaTypeCode the mainViaTypeCode to set
-     */
-    public void setMainViaTypeCode(String mainViaTypeCode) {
-        this.mainViaTypeCode = mainViaTypeCode;
-    }
-
-    /**
-     * @return the mainViaNumber
-     */
-    public String getMainViaNumber() {
-        return mainViaNumber;
-    }
-
-    /**
-     * @param mainViaNumber the mainViaNumber to set
-     */
-    public void setMainViaNumber(String mainViaNumber) {
-        this.mainViaNumber = mainViaNumber;
-    }
-
-    /**
-     * @return the mainViaLetters
-     */
-    public String getMainViaLetters() {
-        return mainViaLetters;
-    }
-
-    /**
-     * @param mainViaLetters the mainViaLetters to set
-     */
-    public void setMainViaLetters(String mainViaLetters) {
-        this.mainViaLetters = mainViaLetters;
-    }
-
-    /**
-     * @return the bis
-     */
-    public String getBis() {
-        return bis;
-    }
-
-    /**
-     * @param bis the bis to set
-     */
-    public void setBis(String bis) {
-        this.bis = bis;
-    }
-
-    /**
-     * @return the bisNumber
-     */
-    public String getBisNumber() {
-        return bisNumber;
-    }
-
-    /**
-     * @param bisNumber the bisNumber to set
-     */
-    public void setBisNumber(String bisNumber) {
-        this.bisNumber = bisNumber;
-    }
-
-    /**
-     * @return the bisLetters
-     */
-    public String getBisLetters() {
-        return bisLetters;
-    }
-
-    /**
-     * @param bisLetters the bisLetters to set
-     */
-    public void setBisLetters(String bisLetters) {
-        this.bisLetters = bisLetters;
-    }
-
-    /**
-     * @return the mainViaQuadrant
-     */
-    public String getMainViaQuadrant() {
-        return mainViaQuadrant;
-    }
-
-    /**
-     * @param mainViaQuadrant the mainViaQuadrant to set
-     */
-    public void setMainViaQuadrant(String mainViaQuadrant) {
-        this.mainViaQuadrant = mainViaQuadrant;
-    }
-
-    /**
-     * @return the mainViaComplementCode
-     */
-    public String getMainViaComplementCode() {
-        return mainViaComplementCode;
-    }
-
-    /**
-     * @param mainViaComplementCode the mainViaComplementCode to set
-     */
-    public void setMainViaComplementCode(String mainViaComplementCode) {
-        this.mainViaComplementCode = mainViaComplementCode;
-    }
-
-    /**
-     * @return the mainViaComplementDetail
-     */
-    public String getMainViaComplementDetail() {
-        return mainViaComplementDetail;
-    }
-
-    /**
-     * @param mainViaComplementDetail the mainViaComplementDetail to set
-     */
-    public void setMainViaComplementDetail(String mainViaComplementDetail) {
-        this.mainViaComplementDetail = mainViaComplementDetail;
-    }
-
-    /**
-     * @return the secondaryViaNumber
-     */
-    public String getSecondaryViaNumber() {
-        return secondaryViaNumber;
-    }
-
-    /**
-     * @param secondaryViaNumber the secondaryViaNumber to set
-     */
-    public void setSecondaryViaNumber(String secondaryViaNumber) {
-        this.secondaryViaNumber = secondaryViaNumber;
-    }
-
-    /**
-     * @return the secondaryViaLetters
-     */
-    public String getSecondaryViaLetters() {
-        return secondaryViaLetters;
-    }
-
-    /**
-     * @param secondaryViaLetters the secondaryViaLetters to set
-     */
-    public void setSecondaryViaLetters(String secondaryViaLetters) {
-        this.secondaryViaLetters = secondaryViaLetters;
-    }
-
-    /**
-     * @return the complementaryViaNumber
-     */
-    public String getComplementaryViaNumber() {
-        return complementaryViaNumber;
-    }
-
-    /**
-     * @param complementaryViaNumber the complementaryViaNumber to set
-     */
-    public void setComplementaryViaNumber(String complementaryViaNumber) {
-        this.complementaryViaNumber = complementaryViaNumber;
-    }
-
-    /**
-     * @return the complementaryViaNumberQuadrant
-     */
-    public String getComplementaryViaNumberQuadrant() {
-        return complementaryViaNumberQuadrant;
-    }
-
-    /**
-     * @param complementaryViaNumberQuadrant the complementaryViaNumberQuadrant to set
-     */
-    public void setComplementaryViaNumberQuadrant(String complementaryViaNumberQuadrant) {
-        this.complementaryViaNumberQuadrant = complementaryViaNumberQuadrant;
-    }
-
-    /**
-     * @return the complementaryViaComplementCode
-     */
-    public String getComplementaryViaComplementCode() {
-        return complementaryViaComplementCode;
-    }
-
-    /**
-     * @param complementaryViaComplementCode the complementaryViaComplementCode to set
-     */
-    public void setComplementaryViaComplementCode(String complementaryViaComplementCode) {
-        this.complementaryViaComplementCode = complementaryViaComplementCode;
-    }
-
-    /**
-     * @return the complementaryViaComplementDetail
-     */
-    public String getComplementaryViaComplementDetail() {
-        return complementaryViaComplementDetail;
-    }
-
-    /**
-     * @param complementaryViaComplementDetail the complementaryViaComplementDetail to set
-     */
-    public void setComplementaryViaComplementDetail(String complementaryViaComplementDetail) {
-        this.complementaryViaComplementDetail = complementaryViaComplementDetail;
-    }
+	/**
+	 * @return the mainViaType
+	 */
+	public String getMainViaType() {
+		return mainViaType;
+	}
+	/**
+	 * @param mainViaType the mainViaType to set
+	 */
+	public void setMainViaType(String mainViaType) {
+		this.mainViaType = mainViaType;
+	}
+	/**
+	 * @return the mainViaNum
+	 */
+	public Integer getMainViaNum() {
+		return mainViaNum;
+	}
+	/**
+	 * @param mainViaNum the mainViaNum to set
+	 */
+	public void setMainViaNum(Integer mainViaNum) {
+		this.mainViaNum = mainViaNum;
+	}
+	/**
+	 * @return the mainViaLetter
+	 */
+	public String getMainViaLetter() {
+		return mainViaLetter;
+	}
+	/**
+	 * @param mainViaLetter the mainViaLetter to set
+	 */
+	public void setMainViaLetter(String mainViaLetter) {
+		this.mainViaLetter = mainViaLetter;
+	}
+	/**
+	 * @return the mainViaBis
+	 */
+	public String getMainViaBis() {
+		return mainViaBis;
+	}
+	/**
+	 * @param mainViaBis the mainViaBis to set
+	 */
+	public void setMainViaBis(String mainViaBis) {
+		this.mainViaBis = mainViaBis;
+	}
+	/**
+	 * @return the mainViaBisLetter
+	 */
+	public String getMainViaBisLetter() {
+		return mainViaBisLetter;
+	}
+	/**
+	 * @param mainViaBisLetter the mainViaBisLetter to set
+	 */
+	public void setMainViaBisLetter(String mainViaBisLetter) {
+		this.mainViaBisLetter = mainViaBisLetter;
+	}
+	/**
+	 * @return the mainViaQuadrant
+	 */
+	public String getMainViaQuadrant() {
+		return mainViaQuadrant;
+	}
+	/**
+	 * @param mainViaQuadrant the mainViaQuadrant to set
+	 */
+	public void setMainViaQuadrant(String mainViaQuadrant) {
+		this.mainViaQuadrant = mainViaQuadrant;
+	}
+	/**
+	 * @return the mainViaComplement
+	 */
+	public String getMainViaComplement() {
+		return mainViaComplement;
+	}
+	/**
+	 * @param mainViaComplement the mainViaComplement to set
+	 */
+	public void setMainViaComplement(String mainViaComplement) {
+		this.mainViaComplement = mainViaComplement;
+	}
+	/**
+	 * @return the mainViaComplementDetail
+	 */
+	public String getMainViaComplementDetail() {
+		return mainViaComplementDetail;
+	}
+	/**
+	 * @param mainViaComplementDetail the mainViaComplementDetail to set
+	 */
+	public void setMainViaComplementDetail(String mainViaComplementDetail) {
+		this.mainViaComplementDetail = mainViaComplementDetail;
+	}
+	/**
+	 * @return the secondaryViaNum
+	 */
+	public Integer getSecondaryViaNum() {
+		return secondaryViaNum;
+	}
+	/**
+	 * @param secondaryViaNum the secondaryViaNum to set
+	 */
+	public void setSecondaryViaNum(Integer secondaryViaNum) {
+		this.secondaryViaNum = secondaryViaNum;
+	}
+	/**
+	 * @return the secondaryViaLetter
+	 */
+	public String getSecondaryViaLetter() {
+		return secondaryViaLetter;
+	}
+	/**
+	 * @param secondaryViaLetter the secondaryViaLetter to set
+	 */
+	public void setSecondaryViaLetter(String secondaryViaLetter) {
+		this.secondaryViaLetter = secondaryViaLetter;
+	}
+	/**
+	 * @return the complementaryViaNum
+	 */
+	public Integer getComplementaryViaNum() {
+		return complementaryViaNum;
+	}
+	/**
+	 * @param complementaryViaNum the complementaryViaNum to set
+	 */
+	public void setComplementaryViaNum(Integer complementaryViaNum) {
+		this.complementaryViaNum = complementaryViaNum;
+	}
+	/**
+	 * @return the complementaryViaQuadrant
+	 */
+	public String getComplementaryViaQuadrant() {
+		return complementaryViaQuadrant;
+	}
+	/**
+	 * @param complementaryViaQuadrant the complementaryViaQuadrant to set
+	 */
+	public void setComplementaryViaQuadrant(String complementaryViaQuadrant) {
+		this.complementaryViaQuadrant = complementaryViaQuadrant;
+	}
+	/**
+	 * @return the complementaryViaComplement
+	 */
+	public String getComplementaryViaComplement() {
+		return complementaryViaComplement;
+	}
+	/**
+	 * @param complementaryViaComplement the complementaryViaComplement to set
+	 */
+	public void setComplementaryViaComplement(String complementaryViaComplement) {
+		this.complementaryViaComplement = complementaryViaComplement;
+	}
+	/**
+	 * @return the complementaryViaComplementDetail
+	 */
+	public String getComplementaryViaComplementDetail() {
+		return complementaryViaComplementDetail;
+	}
+	/**
+	 * @param complementaryViaComplementDetail the complementaryViaComplementDetail to set
+	 */
+	public void setComplementaryViaComplementDetail(String complementaryViaComplementDetail) {
+		this.complementaryViaComplementDetail = complementaryViaComplementDetail;
+	}
+	/**
+	 * @return the serialversionuid
+	 */
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+    
+    
 
 }

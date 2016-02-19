@@ -19,12 +19,12 @@ import co.com.binariasystems.mastercentral.shared.business.utils.Constants;
 public class ProvinceDTO implements Serializable {
 	@Key(column = "ID_DEPARTAMENTO")
     private Integer provinceId;
+	@Relation(column = "ID_PAIS")
+    private CountryDTO country;
     @Column(name = "COD_DEPARTAMENTO")
     private String provinceCode;
     @Column(name = "NOMBRE")
     private String name;
-    @Relation(column = "ID_PAIS")
-    private CountryDTO country;
 	/**
 	 * @return the provinceId
 	 */

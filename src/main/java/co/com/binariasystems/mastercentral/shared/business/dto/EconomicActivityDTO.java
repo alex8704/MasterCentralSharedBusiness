@@ -19,14 +19,14 @@ import co.com.binariasystems.mastercentral.shared.business.utils.Constants;
 public class EconomicActivityDTO implements Serializable {
 	@Key(column = "ID_ACTIVIDAD_ECONOMICA")
     private Integer economicActivityId;
+	@Relation(column = "ID_GRUPO_TARIFARIO")
+    private EconomicActivityTariffGroupingDTO tariffGrouping;
     @Column(name = "COD_ACTIVIDAD_CIIU")
     private String economicActivityCode;
     @Column(name = "NOMBRE")
     private String name;
     @Column(name = "DESCRIPCION")
     private String description;
-    @Relation(column = "ID_GRUPO_TARIFARIO")
-    private EconomicActivityTariffGroupingDTO tariffGrouping;
 	/**
 	 * @return the economicActivityId
 	 */

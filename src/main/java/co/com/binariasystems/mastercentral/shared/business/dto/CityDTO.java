@@ -19,12 +19,12 @@ import co.com.binariasystems.mastercentral.shared.business.utils.Constants;
 public class CityDTO implements Serializable {
 	@Key(column = "ID_CIUDAD")
     private Integer cityId;
+	@Relation(column = "ID_DEPARTAMENTO")
+    private ProvinceDTO province;
     @Column(name = "COD_CIUDAD")
     private String cityCode;
     @Column(name = "NOMBRE")
     private String name;
-    @Relation(column = "ID_DEPARTAMENTO")
-    private ProvinceDTO province;
 	/**
 	 * @return the cityId
 	 */

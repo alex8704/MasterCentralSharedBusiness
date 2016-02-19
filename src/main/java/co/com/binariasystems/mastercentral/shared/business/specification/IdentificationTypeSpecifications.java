@@ -27,8 +27,8 @@ public class IdentificationTypeSpecifications {
 					predicates.add(cb.equal(root.get(MatIdentificationType_.identificationTypeId), idType.getIdentificationTypeId()));
 				if(idType.getIdentificationTypeCode() != null)
 					predicates.add(cb.equal(root.get(MatIdentificationType_.identificationTypeCode), idType.getIdentificationTypeCode()));
-				if(idType.getShorName() != null)
-					predicates.add(cb.equal(root.get(MatIdentificationType_.shorName), idType.getShorName()));
+				if(idType.getShortName() != null)
+					predicates.add(cb.equal(root.get(MatIdentificationType_.shortName), idType.getShortName()));
 				if(idType.getDescription() != null)
 					predicates.add(cb.equal(root.get(MatIdentificationType_.description), idType.getDescription()));
 				

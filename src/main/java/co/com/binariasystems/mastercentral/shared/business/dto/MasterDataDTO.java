@@ -19,12 +19,12 @@ import co.com.binariasystems.mastercentral.shared.business.utils.Constants;
 public class MasterDataDTO implements Serializable {
 	@Key(column = "ID_DATO_MAESTRA")
     private Integer masterDataId;
+	@Relation(column = "ID_MAESTRA")
+    private MasterDTO master;
     @Column(name = "COD_DATO_MAESTRA")
     private String masterDataCode;
     @Column(name = "DESCRIPCION")
     private String description;
-    @Relation(column = "ID_MAESTRA")
-    private MasterDTO master;
 	/**
 	 * @return the masterDataId
 	 */

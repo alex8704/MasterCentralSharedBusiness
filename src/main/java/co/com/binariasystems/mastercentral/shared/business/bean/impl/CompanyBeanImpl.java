@@ -4,12 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import co.com.binariasystems.mastercentral.shared.business.bean.ThirdPersonSharedBean;
-import co.com.binariasystems.mastercentral.shared.business.dao.ThridPersonDAO;
+import co.com.binariasystems.mastercentral.shared.business.bean.CompanyBean;
+import co.com.binariasystems.mastercentral.shared.business.dao.CompanyDAO;
 
 @Service
 @Transactional
-public class ThirdPersonSharedBeanImpl implements ThirdPersonSharedBean{
+public class CompanyBeanImpl implements CompanyBean {
 	@Autowired
-	private ThridPersonDAO dao;
+	private CompanyDAO dao;
 }

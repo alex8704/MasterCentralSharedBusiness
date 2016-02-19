@@ -13,15 +13,15 @@ import co.com.binariasystems.mastercentral.shared.business.utils.Constants;
 @CRUDViewConfig(
 		messagesFilePath=Constants.ENTITY_CRUDS_MESSAGES,
 		deleteEnabled=false,
-		searcherConfig=@SearcherConfig(searchField="contryCode", descriptionFields={"name"})
+		searcherConfig=@SearcherConfig(searchField="countryCode", descriptionFields={"name"})
 )
 public class CountryDTO implements Serializable{
 	@Key(column = "ID_PAIS")
     private Integer countryId;
+	@Column(name = "COD_DANE")
+    private String countryCode;
     @Column(name = "NOMBRE")
     private String name;
-    @Column(name = "COD_DANE")
-    private String contryCode;
 	/**
 	 * @return the countryId
 	 */
@@ -49,13 +49,13 @@ public class CountryDTO implements Serializable{
 	/**
 	 * @return the contryCode
 	 */
-	public String getContryCode() {
-		return contryCode;
+	public String getCountryCode() {
+		return countryCode;
 	}
 	/**
 	 * @param contryCode the contryCode to set
 	 */
-	public void setContryCode(String contryCode) {
-		this.contryCode = contryCode;
+	public void setCountryCode(String countryCode) {
+		this.countryCode = countryCode;
 	}
 }

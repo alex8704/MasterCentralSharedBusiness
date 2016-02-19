@@ -46,7 +46,7 @@ public class MatIdentificationType implements Serializable {
     @NotNull
     @Size(min = 1, max = 15)
     @Column(name = "NOMBRE_CORTO")
-    private String shorName;
+    private String shortName;
     @Size(max = 128)
     @Column(name = "DESCRIPCION")
     private String description;
@@ -82,15 +82,15 @@ public class MatIdentificationType implements Serializable {
     /**
      * @return the shorName
      */
-    public String getShorName() {
-        return shorName;
+    public String getShortName() {
+        return shortName;
     }
 
     /**
      * @param shorName the shorName to set
      */
-    public void setShorName(String shorName) {
-        this.shorName = shorName;
+    public void setShortName(String shortName) {
+        this.shortName = shortName;
     }
 
     /**

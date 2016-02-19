@@ -1,5 +1,5 @@
 package co.com.binariasystems.mastercentral.shared.business.bean;
 
-public interface CompanySharedBean {
+public interface CompanyBean {
 
 }
