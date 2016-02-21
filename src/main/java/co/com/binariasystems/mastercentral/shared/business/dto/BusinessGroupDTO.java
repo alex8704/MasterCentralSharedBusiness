@@ -27,7 +27,7 @@ public class BusinessGroupDTO implements Serializable {
     @Column(name = "IDENTIFICACION_TRIBUTARIA")
     private String taxIdentification;
     @Column(name = "DIGITO_VERIFICACION")
-    private String checkDigit;
+    private Short checkDigit;
     @Column(name = "NUM_PBX")
     private String pbxNumber;
     @Column(name = "NUM_TELEFONO1")
@@ -85,13 +85,13 @@ public class BusinessGroupDTO implements Serializable {
 	/**
 	 * @return the checkDigit
 	 */
-	public String getCheckDigit() {
+	public Short getCheckDigit() {
 		return checkDigit;
 	}
 	/**
 	 * @param checkDigit the checkDigit to set
 	 */
-	public void setCheckDigit(String checkDigit) {
+	public void setCheckDigit(Short checkDigit) {
 		this.checkDigit = checkDigit;
 	}
 	/**

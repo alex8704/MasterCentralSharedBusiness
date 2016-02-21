@@ -28,7 +28,7 @@ public class CompanyDTO implements Serializable {
     @Column(name = "IDENTIFICACION_TRIBUTARIA")
     private String taxIdentification;
     @Column(name = "DIGITO_VERIFICACION")
-    private Integer digitoVerificacion;
+    private Short checkDigit;
     @Column(name = "NUM_PBX")
     private String pbxNumber;
     @Column(name = "NUM_TELEFONO1")
@@ -96,16 +96,16 @@ public class CompanyDTO implements Serializable {
 		this.taxIdentification = taxIdentification;
 	}
 	/**
-	 * @return the digitoVerificacion
+	 * @return the checkDigit
 	 */
-	public Integer getDigitoVerificacion() {
-		return digitoVerificacion;
+	public Short getCheckDigit() {
+		return checkDigit;
 	}
 	/**
-	 * @param digitoVerificacion the digitoVerificacion to set
+	 * @param digitoVerificacion the checkDigit to set
 	 */
-	public void setDigitoVerificacion(Integer digitoVerificacion) {
-		this.digitoVerificacion = digitoVerificacion;
+	public void setCheckDigit(Short checkDigit) {
+		this.checkDigit = checkDigit;
 	}
 	/**
 	 * @return the pbxNumber

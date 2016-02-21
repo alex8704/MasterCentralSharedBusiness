@@ -56,7 +56,7 @@ public class MatCompany implements Serializable {
     @Column(name = "IDENTIFICACION_TRIBUTARIA")
     private String taxIdentification;
     @Column(name = "DIGITO_VERIFICACION")
-    private Integer digitoVerificacion;
+    private Integer checkDigit;
     @Size(max = 15)
     @Column(name = "NUM_PBX")
     private String pbxNumber;
@@ -152,17 +152,17 @@ public class MatCompany implements Serializable {
     }
 
     /**
-     * @return the digitoVerificacion
+     * @return the checkDigit
      */
-    public Integer getDigitoVerificacion() {
-        return digitoVerificacion;
+    public Integer getCheckDigit() {
+        return checkDigit;
     }
 
     /**
-     * @param digitoVerificacion the digitoVerificacion to set
+     * @param digitoVerificacion the checkDigit to set
      */
-    public void setDigitoVerificacion(Integer digitoVerificacion) {
-        this.digitoVerificacion = digitoVerificacion;
+    public void setCheckDigit(Integer checkDigit) {
+        this.checkDigit = checkDigit;
     }
 
     /**

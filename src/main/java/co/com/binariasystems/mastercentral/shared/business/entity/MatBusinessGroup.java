@@ -58,7 +58,7 @@ public class MatBusinessGroup implements Serializable {
     @NotNull
     @Size(min = 1, max = 1)
     @Column(name = "DIGITO_VERIFICACION")
-    private String checkDigit;
+    private Short checkDigit;
     @Size(max = 15)
     @Column(name = "NUM_PBX")
     private String pbxNumber;
@@ -135,14 +135,14 @@ public class MatBusinessGroup implements Serializable {
     /**
      * @return the checkDigit
      */
-    public String getCheckDigit() {
+    public Short getCheckDigit() {
         return checkDigit;
     }
 
     /**
      * @param checkDigit the checkDigit to set
      */
-    public void setCheckDigit(String checkDigit) {
+    public void setCheckDigit(Short checkDigit) {
         this.checkDigit = checkDigit;
     }
 
