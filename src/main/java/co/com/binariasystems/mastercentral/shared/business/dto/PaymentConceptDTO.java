@@ -15,7 +15,8 @@ import co.com.binariasystems.mastercentral.shared.business.utils.Constants;
 @CRUDViewConfig(
 		messagesFilePath=Constants.ENTITY_CRUDS_MESSAGES,
 		deleteEnabled=false,
-		searcherConfig=@SearcherConfig(searchField="paymentConceptId", descriptionFields={"name", "description"}),
+		searcherConfig=@SearcherConfig(searchField="paymentConceptId", descriptionFields={"name"},
+				gridColumnFields={"name", "forEmployees", "forProviders"}),
 		isAuditable=true
 )
 public class PaymentConceptDTO implements Serializable {

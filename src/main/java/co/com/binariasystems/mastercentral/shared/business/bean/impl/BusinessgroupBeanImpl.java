@@ -24,14 +24,14 @@ public class BusinessgroupBeanImpl implements BusinessGroupBean {
 
 	@Override
 	public ListPage<BusinessGroupDTO> findAll(int page, int pageSize) {
-		Page<MatBusinessGroup> resultPage = dao.findAll(new PageRequest(page - 1, pageSize, new Sort(new Sort.Order(Direction.DESC, "businessGroupId"))));
+		Page<MatBusinessGroup> resultPage = dao.findAll(new PageRequest(page - 1, pageSize, new Sort(new Sort.Order(Direction.DESC, "creationDate"))));
 		return new ListPage<BusinessGroupDTO>(ObjectUtils.transferProperties(resultPage.getContent(), BusinessGroupDTO.class), resultPage.getTotalElements());
 	}
 
 	@Override
 	public ListPage<BusinessGroupDTO> findAll(BusinessGroupDTO businessGroup, int page, int pageSize) {
 		Page<MatBusinessGroup> resultPage = dao.findAll(BusinessGroupSpecifications.filledFieldsEqualsTo(businessGroup),
-				new PageRequest(page - 1, pageSize, new Sort(new Sort.Order(Direction.DESC, "businessGroupId"))));
+				new PageRequest(page - 1, pageSize, new Sort(new Sort.Order(Direction.DESC, "creationDate"))));
 		return new ListPage<BusinessGroupDTO>(ObjectUtils.transferProperties(resultPage.getContent(), BusinessGroupDTO.class), resultPage.getTotalElements());
 	}
 

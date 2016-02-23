@@ -42,7 +42,7 @@ public class MatCity implements Serializable {
     private Integer cityId;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 4)
+    @Size(min = 1, max = 6)
     @Column(name = "COD_CIUDAD")
     private String cityCode;
     @Basic(optional = false)

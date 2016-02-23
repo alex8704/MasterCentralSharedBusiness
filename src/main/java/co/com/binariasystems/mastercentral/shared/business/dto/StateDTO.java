@@ -15,7 +15,8 @@ import co.com.binariasystems.mastercentral.shared.business.utils.Constants;
 @CRUDViewConfig(
 		messagesFilePath=Constants.ENTITY_CRUDS_MESSAGES,
 		deleteEnabled=false,
-		searcherConfig=@SearcherConfig(searchField="stateCode", descriptionFields={"name", "description"})
+		searcherConfig=@SearcherConfig(searchField="stateCode", descriptionFields={"name"},
+		gridColumnFields={"stateCode", "name", "description"})
 )
 public class StateDTO implements Serializable {
 	@Key(column = "ID_ESTADO")

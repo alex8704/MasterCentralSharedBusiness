@@ -14,7 +14,7 @@ import co.com.binariasystems.mastercentral.shared.business.dto.BusinessGroupDTO;
 import co.com.binariasystems.mastercentral.shared.business.entity.MatBusinessGroup;
 import co.com.binariasystems.mastercentral.shared.business.entity.MatBusinessGroup_;
 
-public class BusinessGroupSpecifications {
+public final class BusinessGroupSpecifications {
 	public static Specification<MatBusinessGroup> filledFieldsEqualsTo(final BusinessGroupDTO businessGroup){
 		return new Specification<MatBusinessGroup>() {
 			@Override

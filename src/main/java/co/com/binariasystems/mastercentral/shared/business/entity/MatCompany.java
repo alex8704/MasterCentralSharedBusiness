@@ -56,7 +56,7 @@ public class MatCompany implements Serializable {
     @Column(name = "IDENTIFICACION_TRIBUTARIA")
     private String taxIdentification;
     @Column(name = "DIGITO_VERIFICACION")
-    private Integer checkDigit;
+    private Short checkDigit;
     @Size(max = 15)
     @Column(name = "NUM_PBX")
     private String pbxNumber;
@@ -70,8 +70,6 @@ public class MatCompany implements Serializable {
     @Column(name = "CORREO_ELECTRONICO")
     private String emailAdress;
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 30)
     @Enumerated(EnumType.STRING)
     @Column(name = "COD_TIPO_PERIODO_NOMINA")
     private PayrollPeriodType payrollPeriodType;
@@ -154,14 +152,14 @@ public class MatCompany implements Serializable {
     /**
      * @return the checkDigit
      */
-    public Integer getCheckDigit() {
+    public Short getCheckDigit() {
         return checkDigit;
     }
 
     /**
      * @param digitoVerificacion the checkDigit to set
      */
-    public void setCheckDigit(Integer checkDigit) {
+    public void setCheckDigit(Short checkDigit) {
         this.checkDigit = checkDigit;
     }
 

@@ -14,7 +14,8 @@ import co.com.binariasystems.mastercentral.shared.business.utils.Constants;
 @CRUDViewConfig(
 		messagesFilePath=Constants.ENTITY_CRUDS_MESSAGES,
 		deleteEnabled=false,
-		searcherConfig=@SearcherConfig(searchField="masterDataCode", descriptionFields={"description"})
+		searcherConfig=@SearcherConfig(searchField="masterDataCode", descriptionFields={"description"},
+				gridColumnFields={"masterDataCode", "description", "master"})
 )
 public class MasterDataDTO implements Serializable {
 	@Key(column = "ID_DATO_MAESTRA")

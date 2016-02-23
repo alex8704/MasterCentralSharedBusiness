@@ -14,7 +14,7 @@ import co.com.binariasystems.mastercentral.shared.business.dto.IdentificationTyp
 import co.com.binariasystems.mastercentral.shared.business.entity.MatIdentificationType;
 import co.com.binariasystems.mastercentral.shared.business.entity.MatIdentificationType_;
 
-public class IdentificationTypeSpecifications {
+public final class IdentificationTypeSpecifications {
 	public static Specification<MatIdentificationType> filledFieldsEqualsTo(final IdentificationTypeDTO idType){
 		return new Specification<MatIdentificationType>() {
 			@Override

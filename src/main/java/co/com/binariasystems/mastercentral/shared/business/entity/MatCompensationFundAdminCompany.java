@@ -48,7 +48,6 @@ public class MatCompensationFundAdminCompany implements Serializable {
     private String name;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 1)
     @Column(name = "ES_VIGENTE")
     private SN2Boolean isActive;
 

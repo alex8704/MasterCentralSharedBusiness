@@ -15,7 +15,9 @@ import co.com.binariasystems.mastercentral.shared.business.utils.Constants;
 @CRUDViewConfig(
 		messagesFilePath=Constants.ENTITY_CRUDS_MESSAGES,
 		deleteEnabled=false,
-		searcherConfig=@SearcherConfig(searchField="taxpayerTypeCode", descriptionFields={"name", "description"}),
+		searcherConfig=@SearcherConfig(searchField="taxpayerTypeCode", descriptionFields={"name"},
+				gridColumnFields={"taxpayerTypeCode", "name", "isIncomeRetentionTarget", "isIVARetentionTarget", "isICARetentionTarget"
+				, "isCREERetentionTarget", "responsibleOfIVA", "responsibleOfIncome", "responsibleOfICA", "responsibleOfCREE"}),
 		isAuditable=true
 )
 public class TaxpayerTypeDTO implements Serializable {

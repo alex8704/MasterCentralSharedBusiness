@@ -15,7 +15,8 @@ import co.com.binariasystems.mastercentral.shared.business.utils.Constants;
 @CRUDViewConfig(
 		messagesFilePath=Constants.ENTITY_CRUDS_MESSAGES,
 		deleteEnabled=false,
-		searcherConfig=@SearcherConfig(searchField="tariffGroupingCode", descriptionFields={"name"}),
+		searcherConfig=@SearcherConfig(searchField="tariffGroupingCode", descriptionFields={"name"},
+				gridColumnFields={"tariffGroupingCode", "name", "taxableUVT", "currentTariffValue", "economicCategory"}),
 		isAuditable=true
 )
 public class EconomicActivityTariffGroupingDTO implements Serializable {

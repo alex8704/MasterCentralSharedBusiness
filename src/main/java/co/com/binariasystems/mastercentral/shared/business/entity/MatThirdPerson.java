@@ -63,7 +63,6 @@ public class MatThirdPerson implements Serializable {
     @Size(max = 15)
     @Column(name = "NUM_TELEFONO2")
     private String phoneNumber2;
-    @Size(max = 64)
     @Enumerated(EnumType.STRING)
     @Column(name = "COD_TIPO_PERSONA")
     private PersonType personType;

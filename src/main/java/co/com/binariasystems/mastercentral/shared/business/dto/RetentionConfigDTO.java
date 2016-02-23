@@ -17,7 +17,8 @@ import co.com.binariasystems.mastercentral.shared.business.utils.Constants;
 @CRUDViewConfig(
 		messagesFilePath=Constants.ENTITY_CRUDS_MESSAGES,
 		deleteEnabled=false,
-		searcherConfig=@SearcherConfig(searchField="retentionConfigId", descriptionFields={"retentionTaxtType", "personType", "tariffValue"}),
+		searcherConfig=@SearcherConfig(searchField="retentionConfigId", descriptionFields={"retentionTaxtType", "personType", "tariffValue"},
+				gridColumnFields={"retentionTaxtType", "personType", "paymentConcept", "taxableUVT", "tariffValue"}),
 		isAuditable=true
 )
 public class RetentionConfigDTO implements Serializable {

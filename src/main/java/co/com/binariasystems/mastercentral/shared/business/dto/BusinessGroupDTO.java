@@ -10,18 +10,22 @@ import co.com.binariasystems.fmw.entity.annot.Ignore;
 import co.com.binariasystems.fmw.entity.annot.Key;
 import co.com.binariasystems.fmw.entity.annot.Relation;
 import co.com.binariasystems.fmw.entity.annot.SearcherConfig;
+import co.com.binariasystems.fmw.util.ObjectUtils.UpperTransform;
 import co.com.binariasystems.mastercentral.shared.business.utils.Constants;
 
 @Entity(table=Constants.MAT_DBSCHEMA+"."+"MAT_GRUPOS_EMPRESARIALES")
 @CRUDViewConfig(
 		messagesFilePath=Constants.ENTITY_CRUDS_MESSAGES,
 		deleteEnabled=false,
-		searcherConfig=@SearcherConfig(searchField="taxIdentification", descriptionFields={"businessName"}),
+		searcherConfig=@SearcherConfig(searchField="taxIdentification", 
+		descriptionFields={"businessName"},
+		gridColumnFields={"taxIdentification", "businessName", "pbxNumber", "city"}),
 		isAuditable=true
 )
 public class BusinessGroupDTO implements Serializable {
 	@Key(column = "ID_GRUPO_EMPRESARIAL")
     private Integer businessGroupId;
+	@UpperTransform
     @Column(name = "RAZON_SOCIAL")
     private String businessName;
     @Column(name = "IDENTIFICACION_TRIBUTARIA")

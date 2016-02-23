@@ -14,7 +14,8 @@ import co.com.binariasystems.mastercentral.shared.business.utils.Constants;
 @CRUDViewConfig(
 		messagesFilePath=Constants.ENTITY_CRUDS_MESSAGES,
 		deleteEnabled=false,
-		searcherConfig=@SearcherConfig(searchField="cityCode", descriptionFields={"name"})
+		searcherConfig=@SearcherConfig(searchField="cityCode", descriptionFields={"name"},
+				gridColumnFields={"cityCode", "name", "province"})
 )
 public class CityDTO implements Serializable {
 	@Key(column = "ID_CIUDAD")

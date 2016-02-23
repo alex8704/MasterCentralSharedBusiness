@@ -55,8 +55,6 @@ public class MatBusinessGroup implements Serializable {
     @Column(name = "IDENTIFICACION_TRIBUTARIA")
     private String taxIdentification;
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 1)
     @Column(name = "DIGITO_VERIFICACION")
     private Short checkDigit;
     @Size(max = 15)

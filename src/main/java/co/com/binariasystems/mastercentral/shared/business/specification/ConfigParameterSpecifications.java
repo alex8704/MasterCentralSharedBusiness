@@ -15,7 +15,7 @@ import co.com.binariasystems.mastercentral.shared.business.dto.ConfigParameterDT
 import co.com.binariasystems.mastercentral.shared.business.entity.MatConfigParameter;
 import co.com.binariasystems.mastercentral.shared.business.entity.MatConfigParameter_;
 
-public class ConfigParameterSpecifications {
+public final class ConfigParameterSpecifications {
 	public static Specification<MatConfigParameter> filledFieldsEqualsTo(final ConfigParameterDTO configParam){
 		return new Specification<MatConfigParameter>() {
 			@Override

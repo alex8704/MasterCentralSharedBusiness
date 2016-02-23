@@ -16,7 +16,8 @@ import co.com.binariasystems.mastercentral.shared.business.utils.Constants;
 @CRUDViewConfig(
 		messagesFilePath=Constants.ENTITY_CRUDS_MESSAGES,
 		deleteEnabled=false,
-		searcherConfig=@SearcherConfig(searchField="configParameterCode", descriptionFields={"description"}),
+		searcherConfig=@SearcherConfig(searchField="configParameterCode", descriptionFields={"description"},
+				gridColumnFields={"configParameterCode", "numericValue", "stringValue", "description", "applicationCode"}),
 		isAuditable=true
 )
 public class ConfigParameterDTO implements Serializable {

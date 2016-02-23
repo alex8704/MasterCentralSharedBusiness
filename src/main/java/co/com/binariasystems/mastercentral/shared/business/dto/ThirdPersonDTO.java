@@ -11,13 +11,15 @@ import co.com.binariasystems.fmw.entity.annot.Ignore;
 import co.com.binariasystems.fmw.entity.annot.Key;
 import co.com.binariasystems.fmw.entity.annot.Relation;
 import co.com.binariasystems.fmw.entity.annot.SearcherConfig;
+import co.com.binariasystems.fmw.util.ObjectUtils.UpperTransform;
 import co.com.binariasystems.mastercentral.shared.business.utils.Constants;
 
 @Entity(table=Constants.MAT_DBSCHEMA+"."+"MAT_TERCEROS")
 @CRUDViewConfig(
 		messagesFilePath=Constants.ENTITY_CRUDS_MESSAGES,
 		deleteEnabled=false,
-		searcherConfig=@SearcherConfig(searchField="identificationNumber", descriptionFields={"businessName"}),
+		searcherConfig=@SearcherConfig(searchField="identificationNumber", descriptionFields={"businessName"},
+				gridColumnFields={"identificationType", "identificationNumber", "businessName", "emailAddress", "identificationType", "economicActivity"}),
 		isAuditable=true
 )
 public class ThirdPersonDTO implements Serializable {
@@ -31,14 +33,19 @@ public class ThirdPersonDTO implements Serializable {
     private PersonType personType;
     @Column(name = "NUM_IDENTIFICACION")
     private String identificationNumber;
+    @UpperTransform
     @Column(name = "RAZON_SOCIAL")
     private String businessName;
+    @UpperTransform
     @Column(name = "PRIMER_NOMBRE")
     private String firstName;
+    @UpperTransform
     @Column(name = "SEGUNDO_NOMBRE")
     private String middleName;
+    @UpperTransform
     @Column(name = "PRIMER_APELLIDO")
     private String lastName;
+    @UpperTransform
     @Column(name = "SEGUNDO_APELLIDO")
     private String secondLasName;
     @Column(name = "CORREO_ELECTRONICO")
