@@ -4,31 +4,22 @@ import java.io.Serializable;
 import java.util.Date;
 
 import co.com.binariasystems.commonsmodel.enumerated.PersonType;
-import co.com.binariasystems.fmw.entity.annot.CRUDViewConfig;
 import co.com.binariasystems.fmw.entity.annot.Column;
-import co.com.binariasystems.fmw.entity.annot.Entity;
 import co.com.binariasystems.fmw.entity.annot.Ignore;
 import co.com.binariasystems.fmw.entity.annot.Key;
 import co.com.binariasystems.fmw.entity.annot.Relation;
-import co.com.binariasystems.fmw.entity.annot.SearcherConfig;
 import co.com.binariasystems.fmw.util.ObjectUtils.UpperTransform;
-import co.com.binariasystems.mastercentral.shared.business.utils.Constants;
 
-@Entity(table=Constants.MAT_DBSCHEMA+"."+"MAT_TERCEROS")
-@CRUDViewConfig(
-		messagesFilePath=Constants.ENTITY_CRUDS_MESSAGES,
-		deleteEnabled=false,
-		searcherConfig=@SearcherConfig(searchField="identificationNumber", descriptionFields={"businessName"},
-				gridColumnFields={"identificationType", "identificationNumber", "businessName", "emailAddress", "identificationType", "economicActivity"}),
-		isAuditable=true
-)
-public class ThirdPersonDTO implements Serializable {
+public abstract class ThirdPersonDTO implements Serializable {
 	@Key(column = "ID_TERCERO")
     private Integer thirdPersonId;
+	@Ignore
     @Column(name = "NUM_TELEFONO1")
     private String phoneNumber1;
+	@Ignore
     @Column(name = "NUM_TELEFONO2")
     private String phoneNumber2;
+	@Ignore
     @Column(name = "COD_TIPO_PERSONA")
     private PersonType personType;
     @Column(name = "NUM_IDENTIFICACION")
@@ -48,6 +39,7 @@ public class ThirdPersonDTO implements Serializable {
     @UpperTransform
     @Column(name = "SEGUNDO_APELLIDO")
     private String secondLasName;
+    @Ignore
     @Column(name = "CORREO_ELECTRONICO")
     private String emailAddress;
     @Column(name = "USUARIO_CREACION")
@@ -60,12 +52,15 @@ public class ThirdPersonDTO implements Serializable {
     private Date modificationDate;
     @Relation(column = "ID_TIPO_IDENTIFICACION")
     private IdentificationTypeDTO identificationType;
+    @Ignore
     @Relation(column = "ID_TIPO_CONTRIBUYENTE")
     private TaxpayerTypeDTO taxpayerType;
     @Ignore
     private AddressDTO address;
+    @Ignore
     @Relation(column = "ID_CIUDAD")
     private CityDTO city;
+    @Ignore
     @Relation(column = "ID_ACTIVIDAD_ECONOMICA")
     private EconomicActivityDTO economicActivity;
 	/**
@@ -307,5 +302,57 @@ public class ThirdPersonDTO implements Serializable {
 	 */
 	public void setEconomicActivity(EconomicActivityDTO economicActivity) {
 		this.economicActivity = economicActivity;
+	}
+	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((economicActivity == null) ? 0 : economicActivity.hashCode());
+		result = prime * result + ((identificationNumber == null) ? 0 : identificationNumber.hashCode());
+		result = prime * result + ((identificationType == null) ? 0 : identificationType.hashCode());
+		result = prime * result + ((personType == null) ? 0 : personType.hashCode());
+		result = prime * result + ((taxpayerType == null) ? 0 : taxpayerType.hashCode());
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof ThirdPersonDTO))
+			return false;
+		ThirdPersonDTO other = (ThirdPersonDTO) obj;
+		if (economicActivity == null) {
+			if (other.economicActivity != null)
+				return false;
+		} else if (!economicActivity.equals(other.economicActivity))
+			return false;
+		if (identificationNumber == null) {
+			if (other.identificationNumber != null)
+				return false;
+		} else if (!identificationNumber.equals(other.identificationNumber))
+			return false;
+		if (identificationType == null) {
+			if (other.identificationType != null)
+				return false;
+		} else if (!identificationType.equals(other.identificationType))
+			return false;
+		if (personType != other.personType)
+			return false;
+		if (taxpayerType == null) {
+			if (other.taxpayerType != null)
+				return false;
+		} else if (!taxpayerType.equals(other.taxpayerType))
+			return false;
+		return true;
 	}
 }

@@ -8,9 +8,10 @@ import co.com.binariasystems.fmw.entity.annot.Entity;
 import co.com.binariasystems.fmw.entity.annot.Key;
 import co.com.binariasystems.fmw.entity.annot.Relation;
 import co.com.binariasystems.fmw.entity.annot.SearcherConfig;
+import co.com.binariasystems.fmw.entity.cfg.PKGenerationStrategy;
 import co.com.binariasystems.mastercentral.shared.business.utils.Constants;
 
-@Entity(table=Constants.MAT_DBSCHEMA+"."+"MAT_DATOS_MAESTRAS")
+@Entity(table=Constants.MAT_DBSCHEMA+"."+"MAT_DATOS_MAESTRAS",pkGenerationStrategy=PKGenerationStrategy.IDENTITY)
 @CRUDViewConfig(
 		messagesFilePath=Constants.ENTITY_CRUDS_MESSAGES,
 		deleteEnabled=false,
@@ -73,5 +74,42 @@ public class MasterDataDTO implements Serializable {
 	 */
 	public void setMaster(MasterDTO master) {
 		this.master = master;
+	}
+	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((master == null) ? 0 : master.hashCode());
+		result = prime * result + ((masterDataCode == null) ? 0 : masterDataCode.hashCode());
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof MasterDataDTO))
+			return false;
+		MasterDataDTO other = (MasterDataDTO) obj;
+		if (master == null) {
+			if (other.master != null)
+				return false;
+		} else if (!master.equals(other.master))
+			return false;
+		if (masterDataCode == null) {
+			if (other.masterDataCode != null)
+				return false;
+		} else if (!masterDataCode.equals(other.masterDataCode))
+			return false;
+		return true;
 	}
 }

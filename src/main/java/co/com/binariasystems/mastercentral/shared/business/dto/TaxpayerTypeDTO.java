@@ -9,9 +9,10 @@ import co.com.binariasystems.fmw.entity.annot.Column;
 import co.com.binariasystems.fmw.entity.annot.Entity;
 import co.com.binariasystems.fmw.entity.annot.Key;
 import co.com.binariasystems.fmw.entity.annot.SearcherConfig;
+import co.com.binariasystems.fmw.entity.cfg.PKGenerationStrategy;
 import co.com.binariasystems.mastercentral.shared.business.utils.Constants;
 
-@Entity(table=Constants.MAT_DBSCHEMA+"."+"MAT_TIPOS_CONTRIBUYENTE")
+@Entity(table=Constants.MAT_DBSCHEMA+"."+"MAT_TIPOS_CONTRIBUYENTE",pkGenerationStrategy=PKGenerationStrategy.IDENTITY)
 @CRUDViewConfig(
 		messagesFilePath=Constants.ENTITY_CRUDS_MESSAGES,
 		deleteEnabled=false,
@@ -244,5 +245,36 @@ public class TaxpayerTypeDTO implements Serializable {
 	 */
 	public void setModificationDate(Date modificationDate) {
 		this.modificationDate = modificationDate;
+	}
+	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((taxpayerTypeCode == null) ? 0 : taxpayerTypeCode.hashCode());
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof TaxpayerTypeDTO))
+			return false;
+		TaxpayerTypeDTO other = (TaxpayerTypeDTO) obj;
+		if (taxpayerTypeCode == null) {
+			if (other.taxpayerTypeCode != null)
+				return false;
+		} else if (!taxpayerTypeCode.equals(other.taxpayerTypeCode))
+			return false;
+		return true;
 	}
 }

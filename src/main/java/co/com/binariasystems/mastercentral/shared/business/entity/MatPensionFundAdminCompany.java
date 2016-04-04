@@ -108,4 +108,5 @@ public class MatPensionFundAdminCompany implements Serializable {
     public void setIsActive(SN2Boolean isActive) {
         this.isActive = isActive;
     }
+
 }

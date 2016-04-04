@@ -8,9 +8,10 @@ import co.com.binariasystems.fmw.entity.annot.Entity;
 import co.com.binariasystems.fmw.entity.annot.Key;
 import co.com.binariasystems.fmw.entity.annot.Relation;
 import co.com.binariasystems.fmw.entity.annot.SearcherConfig;
+import co.com.binariasystems.fmw.entity.cfg.PKGenerationStrategy;
 import co.com.binariasystems.mastercentral.shared.business.utils.Constants;
 
-@Entity(table=Constants.MAT_DBSCHEMA+"."+"MAT_CIUDADES")
+@Entity(table=Constants.MAT_DBSCHEMA+"."+"MAT_CIUDADES",pkGenerationStrategy=PKGenerationStrategy.IDENTITY)
 @CRUDViewConfig(
 		messagesFilePath=Constants.ENTITY_CRUDS_MESSAGES,
 		deleteEnabled=false,
@@ -73,5 +74,42 @@ public class CityDTO implements Serializable {
 	 */
 	public void setProvince(ProvinceDTO province) {
 		this.province = province;
+	}
+	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((cityCode == null) ? 0 : cityCode.hashCode());
+		result = prime * result + ((province == null) ? 0 : province.hashCode());
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof CityDTO))
+			return false;
+		CityDTO other = (CityDTO) obj;
+		if (cityCode == null) {
+			if (other.cityCode != null)
+				return false;
+		} else if (!cityCode.equals(other.cityCode))
+			return false;
+		if (province == null) {
+			if (other.province != null)
+				return false;
+		} else if (!province.equals(other.province))
+			return false;
+		return true;
 	}
 }

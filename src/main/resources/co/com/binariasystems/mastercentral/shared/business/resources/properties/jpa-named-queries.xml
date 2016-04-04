@@ -2,5 +2,14 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 	<comment>Named Queries de los Diferentes DAO's</comment>
-	
+	<entry key="MatMasterData.findByMasterCode">
+		select mtd from MatMasterData mtd
+		join mtd.master mt
+		where mt.masterCode = ?1
+	</entry>
+	<entry key="MatState.findByGroupingCode">
+		select st from MatState st
+		join st.stateGrouping gr
+		where gr.stateGroupingCode = ?1
+	</entry>
 </properties>

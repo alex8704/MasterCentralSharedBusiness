@@ -109,5 +109,4 @@ public class MatProvince implements Serializable {
     public void setCountry(MatCountry country) {
         this.country = country;
     }
-    
 }

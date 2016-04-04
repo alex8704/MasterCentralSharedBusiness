@@ -11,8 +11,13 @@ import javax.persistence.criteria.Root;
 import org.springframework.data.jpa.domain.Specification;
 
 import co.com.binariasystems.mastercentral.shared.business.dto.CompanyDTO;
+import co.com.binariasystems.mastercentral.shared.business.entity.MatBank_;
+import co.com.binariasystems.mastercentral.shared.business.entity.MatBusinessGroup_;
+import co.com.binariasystems.mastercentral.shared.business.entity.MatCity_;
 import co.com.binariasystems.mastercentral.shared.business.entity.MatCompany;
 import co.com.binariasystems.mastercentral.shared.business.entity.MatCompany_;
+import co.com.binariasystems.mastercentral.shared.business.entity.MatEconomicActivity_;
+import co.com.binariasystems.mastercentral.shared.business.entity.MatTaxpayerType_;
 
 public final class CompanySpecifications {
 	public static Specification<MatCompany> filledFieldsEqualsTo(final CompanyDTO company){
@@ -22,8 +27,6 @@ public final class CompanySpecifications {
 				if(company == null)
 					return cb.and(new Predicate[]{});
 				Set<Predicate> predicates = new HashSet<Predicate>();
-				if(company.getAddress() != null)
-					predicates.add(cb.equal(root.get(MatCompany_.address), company.getAddress()));
 				if(company.getBusinessName() != null)
 					predicates.add(cb.like(root.get(MatCompany_.businessName), company.getBusinessName().replace("*", "%")));
 				if(company.getPhoneNumber2() != null)
@@ -37,19 +40,19 @@ public final class CompanySpecifications {
 				if(company.getTaxIdentification() != null)
 					predicates.add(cb.equal(root.get(MatCompany_.taxIdentification), company.getTaxIdentification()));
 				if(company.getCity() != null)
-					predicates.add(cb.equal(root.get(MatCompany_.city), company.getCity()));
+					predicates.add(cb.equal(root.join(MatCompany_.city).get(MatCity_.cityId), company.getCity().getCityId()));
 				if(company.getEmailAdress() != null)
 					predicates.add(cb.equal(root.get(MatCompany_.emailAdress), company.getAddress()));
 				if(company.getPayrollPeriodType()  != null)
 					predicates.add(cb.equal(root.get(MatCompany_.payrollPeriodType), company.getPayrollPeriodType()));
 				if(company.getTaxpayerType()  != null)
-					predicates.add(cb.equal(root.get(MatCompany_.taxpayerType), company.getTaxpayerType()));
+					predicates.add(cb.equal(root.join(MatCompany_.taxpayerType).get(MatTaxpayerType_.taxpayerTypeId), company.getTaxpayerType().getTaxpayerTypeId()));
 				if(company.getBusinessGroup()  != null)
-					predicates.add(cb.equal(root.get(MatCompany_.businessGroup), company.getBusinessGroup()));
+					predicates.add(cb.equal(root.join(MatCompany_.businessGroup).get(MatBusinessGroup_.businessGroupId), company.getBusinessGroup().getBusinessGroupId()));
 				if(company.getPayrollBank()  != null)
-					predicates.add(cb.equal(root.get(MatCompany_.payrollBank), company.getPayrollBank()));
+					predicates.add(cb.equal(root.join(MatCompany_.payrollBank).get(MatBank_.bankId), company.getPayrollBank().getBankId()));
 				if(company.getEconomicActivity()  != null)
-					predicates.add(cb.equal(root.get(MatCompany_.economicActivity), company.getEconomicActivity()));
+					predicates.add(cb.equal(root.join(MatCompany_.economicActivity).get(MatEconomicActivity_.economicActivityId), company.getEconomicActivity().getEconomicActivityId()));
 				
 				return cb.and(predicates.toArray(new Predicate[]{}));
 			}

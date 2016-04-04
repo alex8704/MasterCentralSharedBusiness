@@ -1,11 +1,15 @@
 package co.com.binariasystems.mastercentral.shared.business.bean;
 
-import co.com.binariasystems.fmw.util.pagination.ListPage;
+import java.util.List;
+
+import co.com.binariasystems.fmw.business.domain.Page;
+import co.com.binariasystems.fmw.business.domain.PageRequest;
 import co.com.binariasystems.mastercentral.shared.business.dto.CompanyDTO;
 
 public interface CompanyBean {
-	public ListPage<CompanyDTO> findAll(int page, int pageSize);
-	public ListPage<CompanyDTO> findAll(CompanyDTO company, int page, int pageSize);
+	public List<CompanyDTO> findAll();
+	public Page<CompanyDTO> findAll(PageRequest pageRequest);
+	public Page<CompanyDTO> findAll(CompanyDTO company, PageRequest pageRequest);
 	public CompanyDTO save(CompanyDTO company);
 	public void delete(CompanyDTO company);
 }

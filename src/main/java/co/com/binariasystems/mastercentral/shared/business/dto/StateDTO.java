@@ -9,9 +9,10 @@ import co.com.binariasystems.fmw.entity.annot.Entity;
 import co.com.binariasystems.fmw.entity.annot.Key;
 import co.com.binariasystems.fmw.entity.annot.Relation;
 import co.com.binariasystems.fmw.entity.annot.SearcherConfig;
+import co.com.binariasystems.fmw.entity.cfg.PKGenerationStrategy;
 import co.com.binariasystems.mastercentral.shared.business.utils.Constants;
 
-@Entity(table=Constants.MAT_DBSCHEMA+"."+"MAT_ESTADOS")
+@Entity(table=Constants.MAT_DBSCHEMA+"."+"MAT_ESTADOS",pkGenerationStrategy=PKGenerationStrategy.IDENTITY)
 @CRUDViewConfig(
 		messagesFilePath=Constants.ENTITY_CRUDS_MESSAGES,
 		deleteEnabled=false,
@@ -102,5 +103,42 @@ public class StateDTO implements Serializable {
 	 */
 	public void setStateGrouping(StateGroupingDTO stateGrouping) {
 		this.stateGrouping = stateGrouping;
+	}
+	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((stateCode == null) ? 0 : stateCode.hashCode());
+		result = prime * result + ((stateGrouping == null) ? 0 : stateGrouping.hashCode());
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof StateDTO))
+			return false;
+		StateDTO other = (StateDTO) obj;
+		if (stateCode == null) {
+			if (other.stateCode != null)
+				return false;
+		} else if (!stateCode.equals(other.stateCode))
+			return false;
+		if (stateGrouping == null) {
+			if (other.stateGrouping != null)
+				return false;
+		} else if (!stateGrouping.equals(other.stateGrouping))
+			return false;
+		return true;
 	}
 }

@@ -10,10 +10,11 @@ import co.com.binariasystems.fmw.entity.annot.Ignore;
 import co.com.binariasystems.fmw.entity.annot.Key;
 import co.com.binariasystems.fmw.entity.annot.Relation;
 import co.com.binariasystems.fmw.entity.annot.SearcherConfig;
+import co.com.binariasystems.fmw.entity.cfg.PKGenerationStrategy;
 import co.com.binariasystems.fmw.util.ObjectUtils.UpperTransform;
 import co.com.binariasystems.mastercentral.shared.business.utils.Constants;
 
-@Entity(table=Constants.MAT_DBSCHEMA+"."+"MAT_GRUPOS_EMPRESARIALES")
+@Entity(table=Constants.MAT_DBSCHEMA+"."+"MAT_GRUPOS_EMPRESARIALES",pkGenerationStrategy=PKGenerationStrategy.IDENTITY)
 @CRUDViewConfig(
 		messagesFilePath=Constants.ENTITY_CRUDS_MESSAGES,
 		deleteEnabled=false,
@@ -205,5 +206,48 @@ public class BusinessGroupDTO implements Serializable {
 	 */
 	public void setCity(CityDTO city) {
 		this.city = city;
+	}
+	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((checkDigit == null) ? 0 : checkDigit.hashCode());
+		result = prime * result + ((city == null) ? 0 : city.hashCode());
+		result = prime * result + ((taxIdentification == null) ? 0 : taxIdentification.hashCode());
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof BusinessGroupDTO))
+			return false;
+		BusinessGroupDTO other = (BusinessGroupDTO) obj;
+		if (checkDigit == null) {
+			if (other.checkDigit != null)
+				return false;
+		} else if (!checkDigit.equals(other.checkDigit))
+			return false;
+		if (city == null) {
+			if (other.city != null)
+				return false;
+		} else if (!city.equals(other.city))
+			return false;
+		if (taxIdentification == null) {
+			if (other.taxIdentification != null)
+				return false;
+		} else if (!taxIdentification.equals(other.taxIdentification))
+			return false;
+		return true;
 	}
 }

@@ -199,4 +199,5 @@ public class MatPaymentConcept implements Serializable {
     public void setModificationDate(Date modificationDate) {
         this.modificationDate = modificationDate;
     }
+
 }

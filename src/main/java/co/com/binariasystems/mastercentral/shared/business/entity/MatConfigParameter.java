@@ -216,5 +216,4 @@ public class MatConfigParameter implements Serializable {
     public void setModificationDate(Date modificationDate) {
         this.modificationDate = modificationDate;
     }
-    
 }

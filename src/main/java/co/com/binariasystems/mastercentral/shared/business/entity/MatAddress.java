@@ -19,7 +19,6 @@ import javax.validation.constraints.Size;
  */
 @Embeddable
 public class MatAddress implements Serializable {
-    private static final long serialVersionUID = 1L;
     
     @Size(max = 15)
     @Column(name = "COD_TIPO_VIA_PPAL")
@@ -230,12 +229,6 @@ public class MatAddress implements Serializable {
 	 */
 	public void setComplementaryViaComplementDetail(String complementaryViaComplementDetail) {
 		this.complementaryViaComplementDetail = complementaryViaComplementDetail;
-	}
-	/**
-	 * @return the serialversionuid
-	 */
-	public static long getSerialversionuid() {
-		return serialVersionUID;
 	}
     
     

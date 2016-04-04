@@ -109,4 +109,5 @@ public class MatCity implements Serializable {
     public void setProvince(MatProvince province) {
         this.province = province;
     }
+
 }

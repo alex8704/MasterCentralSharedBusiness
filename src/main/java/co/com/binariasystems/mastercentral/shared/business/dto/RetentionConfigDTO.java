@@ -11,9 +11,10 @@ import co.com.binariasystems.fmw.entity.annot.Entity;
 import co.com.binariasystems.fmw.entity.annot.Key;
 import co.com.binariasystems.fmw.entity.annot.Relation;
 import co.com.binariasystems.fmw.entity.annot.SearcherConfig;
+import co.com.binariasystems.fmw.entity.cfg.PKGenerationStrategy;
 import co.com.binariasystems.mastercentral.shared.business.utils.Constants;
 
-@Entity(table=Constants.MAT_DBSCHEMA+"."+"MAT_CONFIG_RETENCIONES")
+@Entity(table=Constants.MAT_DBSCHEMA+"."+"MAT_CONFIG_RETENCIONES",pkGenerationStrategy=PKGenerationStrategy.IDENTITY)
 @CRUDViewConfig(
 		messagesFilePath=Constants.ENTITY_CRUDS_MESSAGES,
 		deleteEnabled=false,
@@ -161,5 +162,48 @@ public class RetentionConfigDTO implements Serializable {
 	 */
 	public void setPaymentConcept(PaymentConceptDTO paymentConcept) {
 		this.paymentConcept = paymentConcept;
+	}
+	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((paymentConcept == null) ? 0 : paymentConcept.hashCode());
+		result = prime * result + ((personType == null) ? 0 : personType.hashCode());
+		result = prime * result + ((retentionTaxtType == null) ? 0 : retentionTaxtType.hashCode());
+		result = prime * result + ((taxableUVT == null) ? 0 : taxableUVT.hashCode());
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof RetentionConfigDTO))
+			return false;
+		RetentionConfigDTO other = (RetentionConfigDTO) obj;
+		if (paymentConcept == null) {
+			if (other.paymentConcept != null)
+				return false;
+		} else if (!paymentConcept.equals(other.paymentConcept))
+			return false;
+		if (personType != other.personType)
+			return false;
+		if (retentionTaxtType != other.retentionTaxtType)
+			return false;
+		if (taxableUVT == null) {
+			if (other.taxableUVT != null)
+				return false;
+		} else if (!taxableUVT.equals(other.taxableUVT))
+			return false;
+		return true;
 	}
 }

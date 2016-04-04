@@ -8,9 +8,10 @@ import co.com.binariasystems.fmw.entity.annot.Column;
 import co.com.binariasystems.fmw.entity.annot.Entity;
 import co.com.binariasystems.fmw.entity.annot.Key;
 import co.com.binariasystems.fmw.entity.annot.SearcherConfig;
+import co.com.binariasystems.fmw.entity.cfg.PKGenerationStrategy;
 import co.com.binariasystems.mastercentral.shared.business.utils.Constants;
 
-@Entity(table=Constants.MAT_DBSCHEMA+"."+"MAT_CCFS")
+@Entity(table=Constants.MAT_DBSCHEMA+"."+"MAT_CCFS",pkGenerationStrategy=PKGenerationStrategy.IDENTITY)
 @CRUDViewConfig(
 		messagesFilePath=Constants.ENTITY_CRUDS_MESSAGES,
 		deleteEnabled=false,
@@ -72,5 +73,36 @@ public class CompensationFundAdminCompanyDTO implements Serializable {
 	 */
 	public void setIsActive(SN2Boolean isActive) {
 		this.isActive = isActive;
+	}
+	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((compensationFundAdminCompanyCode == null) ? 0 : compensationFundAdminCompanyCode.hashCode());
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof CompensationFundAdminCompanyDTO))
+			return false;
+		CompensationFundAdminCompanyDTO other = (CompensationFundAdminCompanyDTO) obj;
+		if (compensationFundAdminCompanyCode == null) {
+			if (other.compensationFundAdminCompanyCode != null)
+				return false;
+		} else if (!compensationFundAdminCompanyCode.equals(other.compensationFundAdminCompanyCode))
+			return false;
+		return true;
 	}
 }

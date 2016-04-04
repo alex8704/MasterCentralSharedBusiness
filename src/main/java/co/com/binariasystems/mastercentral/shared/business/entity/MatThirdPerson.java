@@ -11,44 +11,30 @@ import java.util.Date;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.DiscriminatorType;
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Embedded;
-import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import co.com.binariasystems.commonsmodel.enumerated.PersonType;
-import co.com.binariasystems.mastercentral.shared.business.utils.Constants;
+
 
 /**
  *
  * @author Alexander
  */
-@Entity
-@Table(schema=Constants.MAT_DBSCHEMA, name = "MAT_TERCEROS")
-@Inheritance(strategy = InheritanceType.JOINED)
-@DiscriminatorColumn(name = "SUBTYPE_DISCRIMINATOR", discriminatorType = DiscriminatorType.STRING)
-@DiscriminatorValue("TERCERO")
-@NamedQueries({
-    @NamedQuery(name = "MatThirdPerson.findAll", query = "SELECT m FROM MatThirdPerson m")})
-public class MatThirdPerson implements Serializable {
+@MappedSuperclass
+public abstract class MatThirdPerson implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -401,5 +387,7 @@ public class MatThirdPerson implements Serializable {
     public void setEconomicActivity(MatEconomicActivity economicActivity) {
         this.economicActivity = economicActivity;
     }
+
+	
 
 }
